@@ -1,0 +1,123 @@
+---
+title: "DV_FinalProject"
+author: "Probe, Yudkin, Honganen"
+date: "Wednesday, May 13, 2015"
+output: html_document
+---
+
+##**Load Packages and Data**
+
+```{r}
+
+source("../01 Data/Load_Packages.R", echo = TRUE)
+
+source("../01 Data/Load_MBS1.R", echo = TRUE)
+source("../01 Data/Load_MBS2.R", echo = TRUE)
+source("../01 Data/Load_UNEMPLOYMENT.R", echo = TRUE)
+MBSALL <- bind_rows(MBS1, MBS2)
+tbl_df(MBSALL)
+
+```
+
+##**Data Sets**
+
+###Mortgage Backed Security # 1
+```{r}
+tbl_df(MBS1)
+```
+
+###Mortgage Backed Security # 2
+```{r}
+tbl_df(MBS2)
+```
+
+###Unemployment Data
+```{r}
+tbl_df(UNEMPLOYMENT)
+```
+
+
+###Statistics about our data
+```{r}
+source("../03 Visualizations/Categorical.R", echo = TRUE)
+```
+
+
+###Chart 1
+This chart combines the two mortgage backed securities and shows the amount of loans by type. 
+"Fix"" signifies a fixed rate loan and "ARM"" signifies an adjustable rate mortgate.
+```{r}
+
+source("../02 Data Wrangling/DataWrangling1 - chart.R", echo = TRUE)
+source("../03 Visualizations/DataWrangling1 - visualization.R", echo = TRUE)
+MBSALL <- bind_rows(MBS1, MBS2)
+
+```
+
+###Chart 2
+This chart combines the two mortgage backed securities and filters the loans for Texas and California, provides a summary and then charts FICO vs. Orig_Rate
+```{r}
+
+source("../02 Data Wrangling/DataWrangling2 - chart.R", echo = TRUE)
+source("../03 Visualizations/DataWrangling2 - visualization.R", echo = TRUE)
+MBSALL <- bind_rows(MBS1, MBS2)
+
+```
+
+###Chart 3
+This chart combines the two mortgage backed securities and filters the loans for the top 50% according to the rate and then graphs CLTV vs. Interest Rate
+
+```{r}
+
+source("../02 Data Wrangling/DataWrangling3 - chart.R", echo = TRUE)
+source("../03 Visualizations/DataWrangling3 - visualization.R", echo = TRUE)
+MBSALL <- bind_rows(MBS1, MBS2)
+
+```
+
+###Chart 4
+This chart compares the state unemployment rate with average mortgage interest rate from the combined data set of 2 mortgage backed securitiese
+
+```{r}
+
+source("../02 Data Wrangling/DataWrangling4 - chart.R", echo = TRUE)
+source("../03 Visualizations/DataWrangling4 - visualization.R", echo = TRUE)
+MBSALL <- bind_rows(MBS1, MBS2)
+
+```
+
+###Chart 5
+This chart categorizes the loans by investment type (Investor Owned, Owner Occupied, and Second Home), and then shows what percentage of those loans are in states with unemployment above and below 4.45%
+
+```{r}
+
+source("../02 Data Wrangling/DataWrangling5 - chart.R", echo = TRUE)
+source("../03 Visualizations/DataWrangling5 - visualization.R", echo = TRUE)
+MBSALL <- bind_rows(MBS1, MBS2)
+
+```
+
+###Chart 6
+This chart filters the loans for the top 50% according to the rate and then graphs CLTV vs. Unempoyment
+
+```{r}
+
+source("../02 Data Wrangling/DataWrangling6 - chart.R", echo = TRUE)
+source("../03 Visualizations/DataWrangling6 - visualization.R", echo = TRUE)
+MBSALL <- bind_rows(MBS1, MBS2)
+
+```
+
+### Tableau Vis 1 - AVG FICO by State for both MBS #1 and MBS #2
+![](./Final_Vis1.png)
+
+### Tableau Vis 2 - Interest Rate V. Unemployment Rate by State
+![](./Final_Vis2.png)
+
+### Tableau Vis 3 - AVG CLTV by State for both MBS #1 and MBS #2
+![](./Final_Vis3.png)
+
+### Tableau Vis 4 - FICO V. Unemployment Rate by State
+![](./Final_Vis4.png)
+
+###Thanks for a great semester, Dr. Cannata!!!##
